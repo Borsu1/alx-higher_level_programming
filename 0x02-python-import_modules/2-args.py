@@ -6,12 +6,12 @@ def print_args():
     if num_args == 0:
         print("Number of arguments: 0.")
     elif num_args == 1:
-        print("Number of argument: 1:")
-        print("1: " + sys.argv[1])
+        print(f"Number of argument: 1:")
+        print(f"1: {sys.argv[1]}")
     else:
-        print("Number of arguments: " + str(num_args) + ":")
+        print(f"Number of arguments: {num_args}:")
         for i in range(1, num_args + 1):
-            print(str(i) + ": " + sys.argv[i])
+            print(f"{i}: {sys.argv[i]}")
 
 if __name__ == "__main__":
     print_args()
