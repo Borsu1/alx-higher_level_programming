@@ -1,19 +1,23 @@
 #!/usr/bin/python3
-import calculator_1 as calc
+from calculator_1 import add, sub, mul, div
+
 
 def main():
     a = 10
     b = 5
 
-    add = calc.add(a, b)
-    sub = calc.sub(a, b)
-    mul = calc.mul(a, b)
-    div = calc.div(a, b)
+    sum_result = add(a, b)
+    print("The sum of a and b is:", sum_result)
 
-    print(f"The sum of {a} and {b} is: {add}")
-    print(f"The difference between {a} and {b} is: {sub}")
-    print(f"The product of {a} and {b} is: {mul}")
-    print(f"The division of {a} by {b} is: {div}")
+    diff_result = sub(a, b)
+    print("The difference of a and b is:", diff_result)
+
+    prod_result = mul(a, b)
+    print("The product of a and b is:", prod_result)
+
+    quot_result = div(a, b)
+    print("The quotient of a and b is:", quot_result)
+
 
 if __name__ == "__main__":
     main()
