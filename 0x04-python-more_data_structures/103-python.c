@@ -1,4 +1,4 @@
-#include <Python.h>
+i#include <Python.h>
 #include <stdio.h>
 
 void print_python_list(PyObject *p)
@@ -9,7 +9,7 @@ void print_python_list(PyObject *p)
     printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
     for (long int i = 0; i < size; i++)
     {
-        PyObject *item = PyList_GetItem(p, i);
+        PyObject *item = ((PyListObject *)p)->ob_item[i];
         printf("Element %ld: %s\n", i, item->ob_type->tp_name);
     }
 }
