@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def safe_print_integer(value):
+    value = 89
     try:
         print("{:d}".format(value))
         return True
