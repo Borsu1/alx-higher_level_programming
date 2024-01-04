@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This is a class that defines a square"""
-class Square:
+  class Square:
     """
     Attributes:
         __size (int): The size of the square.

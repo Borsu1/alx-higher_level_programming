@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-class Square:
-    """
-    This is a class for defining a square.
 
+  """This is a class for defining a square."""
+  class Square:
+    """
     Attributes:
         __size (int): The size of the square. It's a private attribute.
 
@@ -12,10 +12,9 @@ class Square:
         my_print(): Prints the square using the "#" character.
     """
 
+        """The constructor for the Square class."""
     def __init__(self, size=0):
         """
-        The constructor for the Square class.
-
         Parameters:
             size (int, optional): The size of the square. Defaults to 0.
 
@@ -25,21 +24,19 @@ class Square:
         """
         self.size = size
 
+        """The size property."""
     @property
     def size(self):
         """
-        The size property.
-
         Returns:
             int: The size of the square.
         """
         return self.__size
 
+        """The size property setter."""
     @size.setter
     def size(self, value):
         """
-        The size property setter.
-
         Parameters:
             value (int): The size of the square.
 
@@ -53,11 +50,9 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-
+        """The function to calculate the area of the square."""
     def area(self):
         """
-        The function to calculate the area of the square.
-
         Returns:
             int: The area of the square.
         """

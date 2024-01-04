@@ -1,46 +1,43 @@
 #!/usr/bin/python3
-class Node:
-    """
-    This is a class for defining a node of a singly linked list.
 
+    """This is a class for defining a node of a singly linked list."""
+  class Node:
+    """
     Attributes:
         __data (int): The data held by the node. It's a private attribute.
-        __next_node (Node): The next node in the list. It's a private attribute.
+        __next_node (Node): The next node in the list. It's a private attrib        ute.
 
     Methods:
         data: A property that gets or sets the data of the node.
         next_node: A property that gets or sets the next node in the list.
     """
 
+        """The constructor for the Node class."""
     def __init__(self, data, next_node=None):
         """
-        The constructor for the Node class.
-
         Parameters:
             data (int): The data to be held by the node.
-            next_node (Node, optional): The next node in the list. Defaults to None.
+            next_node (Node, optional): The next node in the list. Defaults             to None.
 
         Raises:
-            TypeError: If data is not an integer or next_node is not a Node object.
+            TypeError: If data is not an integer or next_node is not a Node             object.
         """
         self.data = data
         self.next_node = next_node
 
+        """The data property"""
     @property
     def data(self):
         """
-        The data property.
-
         Returns:
             int: The data held by the node.
         """
         return self.__data
 
+        """The data property setter."""
     @data.setter
     def data(self, value):
         """
-        The data property setter.
-
         Parameters:
             value (int): The data to be held by the node.
 
@@ -51,23 +48,20 @@ class Node:
             raise TypeError("data must be an integer")
         else:
             self.__data = value
-
+        """The next_node property."""
     @property
     def next_node(self):
         """
-        The next_node property.
-
         Returns:
             Node: The next node in the list.
         """
         return self.__next_node
 
+        """The next_node property setter."""
     @next_node.setter
     def next_node(self, value):
         """
-        The next_node property setter.
-
-        Parameters:
+         Parameters:
             value (Node): The next node in the list.
 
         Raises:
@@ -78,16 +72,14 @@ class Node:
         else:
             self.__next_node = value
 
-
-class SinglyLinkedList:
+    """This is a class for defining a singly linked list."""
+  class SinglyLinkedList:
     """
-    This is a class for defining a singly linked list.
-
     Attributes:
         __head (Node): The first node in the list. It's a private attribute.
 
     Methods:
-        sorted_insert(value): Inserts a new Node into the correct sorted position in the list.
+        sorted_insert(value): Inserts a new Node into the correct sorted pos    ition in the list.
     """
 
     def __init__(self):
@@ -96,10 +88,9 @@ class SinglyLinkedList:
         """
         self.__head = None
 
+        """The function to print the entire list."""
     def __str__(self):
         """
-        The function to print the entire list.
-
         Returns:
             str: The entire list with one node number per line.
         """
@@ -110,10 +101,9 @@ class SinglyLinkedList:
             node = node.next_node
         return "\n".join(values)
 
+        """The function to insert a new Node into the correct sorted positio        n in the list."""
     def sorted_insert(self, value):
         """
-        The function to insert a new Node into the correct sorted position in the list.
-
         Parameters:
             value (int): The data to be held by the new node.
         """
@@ -125,7 +115,7 @@ class SinglyLinkedList:
             self.__head = new_node
         else:
             node = self.__head
-            while node.next_node is not None and node.next_node.data < value:
+            while node.next_node is not None and node.next_node.data < value            :
                 node = node.next_node
             new_node.next_node = node.next_node
             node.next_node = new_node
