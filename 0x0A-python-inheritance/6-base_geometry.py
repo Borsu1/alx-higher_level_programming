@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Defines a base geometry class BaseGeometry."""
+
+
 class BaseGeometry:
     """
     BaseGeometry is a base class with no attributes.
