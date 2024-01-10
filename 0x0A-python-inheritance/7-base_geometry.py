@@ -1,17 +1,25 @@
 #!/usr/bin/python3
-"""Defines an inherited class-checking function."""
+"""Defines a base geometry class BaseGeometry."""
 
 
-def inherits_from(obj, a_class):
-    """Checks if an object is an inherited instance of a class.
+class BaseGeometry:
+    """Reprsent base geometry."""
 
-    Args:
-        obj (any): The object to check.
-        a_class (type): The class to match the type of obj to.
-    Returns:
-        If obj is an inherited instance of a_class - True.
-        Otherwise - False.
-    """
-    if issubclass(type(obj), a_class) and type(obj) != a_class:
-        return True
-    return False
+    def area(self):
+        """Not yet implemented."""
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """Validate a parameter as an integer.
+
+        Args:
+            name (str): The name of the parameter.
+            value (int): The parameter to validate.
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is <= 0.
+        """
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
