@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module for the MagicClass square."""
+
+
 import math
 
 
@@ -52,9 +54,9 @@ class MagicClass:
             ValueError: If size is less than 0.
         """
         if not isinstance(value, (int, float)):
-            raise TypeError("size must be a number")
+            raise TypeError("radius must be a number")
         elif value < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError("radius must be >= 0")
         else:
             self.__radius = value
 
