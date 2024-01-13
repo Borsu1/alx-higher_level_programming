@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+"""This is a class for defining a square."""
 
-  """This is a class for defining a square."""
-  class Square:
+
+class Square:
     """
+    This class represents a square.
     Attributes:
         __size (int): The size of the square. It's a private attribute.
 
@@ -12,7 +14,7 @@
         my_print(): Prints the square using the "#" character.
     """
 
-        """The constructor for the Square class."""
+    """The constructor for the Square class."""
     def __init__(self, size=0):
         """
         Parameters:
@@ -63,7 +65,7 @@
         The function to print the square using the "#" character.
 
         Prints:
-            str: The square represented by the "#" character. If size is 0, prints an empty line.
+            str: Square represented by "#". If size is 0, prints an empty line.
         """
         if self.__size == 0:
             print()

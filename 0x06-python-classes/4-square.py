@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """This is a class for defining a square."""
-  class Square:
+
+
+class Square:
     """
+    This class represents a square.
     Attributes:
         __size (int): The size of the square. It's a private attribute.
 
@@ -23,17 +26,14 @@
         """
         self.size = size
 
-"""The size property"""
     @property
     def size(self):
-    
-       """
-       Returns:
+        """
+        Returns:
             int: The size of the square.
         """
         return self.__size
 
-"""The size property setter."""
     @size.setter
     def size(self, value):
         """
@@ -51,9 +51,7 @@
         else:
             self.__size = value
 
-"""The function to calculate the area of the square."""
     def area(self):
-
         """
         Returns:
             int: The area of the square.

@@ -1,12 +1,14 @@
 #!/usr/bin/python3
+"""Module for the MagicClass square."""
 import math
+
 
 class MagicClass:
     """
-    This is a class for defining a circle.
+    This class represent a magicClass.
 
     Attributes:
-        __radius (int or float): The radius of the circle. It's a private attribute.
+        __radius (int or float): The circle's radius. It's a private attribute.
 
     Methods:
         size: A property that gets or sets the radius of the circle.
@@ -19,7 +21,7 @@ class MagicClass:
         The constructor for the MagicClass class.
 
         Parameters:
-            radius (int or float, optional): The radius of the circle. Defaults to 0.
+            radius (int or float, optional): Circle's radius. Defaults to 0.
 
         Raises:
             TypeError: If radius is not a number (float or integer).

@@ -1,11 +1,13 @@
 #!/usr/bin/python3
+"""This is a class for defining a square."""
 
-    """This is a class for defining a square."""
-  class Square:
+
+class Square:
     """
+    This class represents a square.
     Attributes:
         __size (int): The size of the square. It's a private attribute.
-        __position (tuple): The position of the square. It's a private attribute.
+        __position (tuple): The square's position. It's a private attribute.
 
     Methods:
         size: A property that gets or sets the size of the square.
@@ -14,15 +16,15 @@
         my_print(): Prints the square using the "#" character.
     """
 
-        """The constructor for the Square class"""
+    """The constructor for the Square class"""
     def __init__(self, size=0, position=(0, 0)):
         """
         Parameters:
             size (int, optional): The size of the square. Defaults to 0.
-            position (tuple, optional): The position of the square. Defaults to (0, 0).
+            position (tuple, optional): Square's position. Defaults to (0, 0).
 
         Raises:
-            TypeError: If size is not an integer or position is not a tuple of 2 positive integers.
+            TypeError: Size must be int, position a tuple of 2 positive ints.
             ValueError: If size is less than 0.
         """
         self.size = size
@@ -74,8 +76,9 @@
         Raises:
             TypeError: If position is not a tuple of 2 positive integers.
         """
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinst        ance(i, int) and i >= 0 for i in value):
-            raise TypeError("position must be a tuple of 2 positive integers        ")
+        if not (isinstance(value, tuple) and len(value) == 2 and
+                all(isinstance(i, int) and i >= 0 for i in value)):
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
 
@@ -91,10 +94,11 @@
     def my_print(self):
         """
         Prints:
-            str: The square represented by the "#" character. If size is 0,         prints an empty line.
+            str: Square represented by "#". If size is 0, prints an empty line.
         """
         if self.__size == 0:
             print()
         else:
             print("\n" * self.__position[1], end="")
-            print("\n".join(" " * self.__position[0] + "#" * self.__size for         _ in range(self.__size)))
+            print("\n".join(" " * self.__position[0] + "#" * self.__size
+                            for _ in range(self.__size)))

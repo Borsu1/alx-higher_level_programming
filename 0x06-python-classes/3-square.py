@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """This is a class for defining a square."""
-  class Square:
+
+
+class Square:
     """
+    This class represents a square.
     Attributes:
         __size (int): The size of the square. It's a private attribute.
 
