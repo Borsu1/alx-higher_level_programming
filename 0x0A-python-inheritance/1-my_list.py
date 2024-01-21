@@ -1,12 +1,5 @@
 #!/usr/bin/python3
-"""
-Module:
-    This module defines an inherited list class MyList.
-
-Classes:
-    MyList: A class that inherits from the built-in list class and implements
-    sorted printing.
-"""
+"""This module defines an inherited list class MyList."""
 
 
 class MyList(list):
