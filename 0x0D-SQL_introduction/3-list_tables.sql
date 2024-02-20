@@ -1,4 +1,3 @@
 -- Script that list all the tables of a database
-USE hbtn_0c_0;
 
-SHOW TABLES;
+SHOW TABLES FROM hbtn_0c_0;
