@@ -46,12 +46,12 @@ self.assertEqual(max_integer(ints_and_floats), 15.5)
 
 def test_string(self):
 """Test a string."""
-string = "Brennan"
+string = "Daniel"
 self.assertEqual(max_integer(string), 'r')
 
 def test_list_of_strings(self):
 """Test a list of strings."""
-strings = ["Brennan", "is", "my", "name"]
+strings = ["Daniel", "is", "my", "name"]
 self.assertEqual(max_integer(strings), "name")
 
 def test_empty_string(self):
