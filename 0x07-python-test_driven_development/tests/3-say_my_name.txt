@@ -48,7 +48,7 @@ a TypeError is raised.
 
 ::
 
-    >>> say_my_name({"Jonas": 6, "Arafat": 5}, 5.7)
+    >>> say_my_name({"Arafat": 6, "Jonas": 5}, 5.7)
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
