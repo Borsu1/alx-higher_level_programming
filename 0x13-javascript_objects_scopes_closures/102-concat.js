@@ -16,4 +16,5 @@ const data = data1 + data2;
 // Write the concatenated data to the destination file
 fs.writeFileSync(destinationFile, data);
 
-console.log('Files have been concatenated successfully.');
+// Print the concatenated data
+console.log(data);
