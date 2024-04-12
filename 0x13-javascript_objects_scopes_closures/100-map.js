@@ -1,10 +1,12 @@
 #!/usr/bin/node
-// The array that export a `list` from the file 100-data.js
+// Import the `list` array from the '100-data.js' module
 const { list } = require('./100-data.js');
 
-// Create a new list with each value equal to the value of the initial list, multiplied by the index in the list
+// Create a new list where each value is the product of the corresponding value in the initial list and its index
 const newList = list.map((value, index) => value * index);
 
-// Print both the initial list and the new list
-console.log('Initial list:', list);
-console.log('New list:', newList);
+// Log the initial list to the console
+console.log(list);
+
+// Log the new list to the console
+console.log(newList);
