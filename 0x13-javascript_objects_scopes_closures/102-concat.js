@@ -24,7 +24,7 @@ if (fs.statSync(sourceFile2).size !== 0) {
 }
 
 // Write the concatenated data to the destination file
-fs.writeFileSync(destinationFile, data);
+fs.writeFileSync(destinationFile, data.trim());
 
 // Print the concatenated data
-console.log(data);
+console.log(data.trim());
