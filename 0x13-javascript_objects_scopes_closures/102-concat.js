@@ -13,7 +13,7 @@ let data = '';
 if (fs.statSync(sourceFile1).size !== 0) {
   // Read the source file
   const data1 = fs.readFileSync(sourceFile1, 'utf8');
-  data += data1;
+  data += data1 + '\n';
 }
 
 // Check if the second source file is not empty
