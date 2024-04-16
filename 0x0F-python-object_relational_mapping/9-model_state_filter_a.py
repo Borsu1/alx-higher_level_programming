@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Script that lists all State objects that contain the letter 'a' from the database hbtn_0e_6_usa"""
+"""Script that lists all State objects that contain the letter 'a'
+from the database hbtn_0e_6_usa
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -12,8 +14,10 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     # Create engine that connects to the MySQL server
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name), pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(username, password, db_name), pool_pre_ping=True
+    )
 
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
@@ -22,7 +26,8 @@ if __name__ == "__main__":
     session = Session()
 
     # Query for all states containing the letter 'a'
-    states = session.query(State).filter(State.name.contains('a')).order_by(State.id)
+    states = session.query(State).filter(
+        State.name.contains('a')).order_by(State.id)
 
     for state in states:
         print("{}: {}".format(state.id, state.name))
