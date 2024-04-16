@@ -12,8 +12,11 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     # Setup of the engine
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name), pool_pre_ping=True)
+    connection_string = (
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(username, password, db_name)
+    )
+    engine = create_engine(connection_string, pool_pre_ping=True)
 
     # Creation of the session
     Session = sessionmaker(bind=engine)
@@ -27,4 +30,3 @@ if __name__ == "__main__":
         session.commit()
 
     session.close()
-
