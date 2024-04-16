@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Creates the State 'California' with the City 'San Francisco' from the database hbtn_0e_100_usa"""
+"""
+Creates the State 'California' with the City 'San Francisco'
+from the database hbtn_0e_100_usa
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -13,8 +16,12 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     # Setup of the engine
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name), pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+            username, password, db_name
+        ),
+        pool_pre_ping=True
+    )
 
     # Create the tables in the database
     Base.metadata.create_all(engine)

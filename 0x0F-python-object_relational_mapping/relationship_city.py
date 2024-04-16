@@ -6,6 +6,9 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from relationship_state import Base, State
 
+
+# Ensure there are two blank lines here
+
 class City(Base):
     """Represents a city with SQLalchemy.
 
