@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Fetches a State object with a specific name from the database hbtn_0e_6_usa"""
+"""
+Fetches a State object with a specific name from the database hbtn_0e_6_usa
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -13,8 +15,10 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     # Setup of the engine
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name), pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(username, password, db_name), pool_pre_ping=True
+    )
 
     # Creation of the session
     Session = sessionmaker(bind=engine)
