@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Bash script that takes in a URL, sends a GET request to the URL, and displays the body of the response.
 # Check if URL is provided
 if [ "$#" -ne 1 ]; then
 	    echo "Usage: $0 <url>"

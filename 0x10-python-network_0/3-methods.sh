@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Bash script that takes in a URL and displays all HTTP methods the server will accept.
 # Check if URL is provided
 if [ "$#" -ne 1 ]; then
 	    echo "Usage: $0 <url>"
