@@ -1,15 +1,14 @@
 #!/usr/bin/node
-const axios = require('axios');
 
-async function getStatus (url) {
-  try {
-    const response = await axios.get(url);
-    console.log(`code: ${response.status}`);
-  } catch (error) {
-    console.error(`An error occurred: ${error.message}`);
-  }
-}
+const request = require('request');
+// Import the 'request' module.
 
-// Example usage:
-const urlToRequest = 'https://example.com'; // Replace with your desired URL
-getStatus(urlToRequest);
+request.get(process.argv[2])
+// Use the 'request' module to perform an HTTP GET request to the URL.
+
+  .on('response', function (response) {
+    // Set up an event listener for the 'response' event emitted by the HTTP request.
+
+    console.log(`code: ${response.statusCode}`);
+    // Log the HTTP status code of the response to the console.
+  });

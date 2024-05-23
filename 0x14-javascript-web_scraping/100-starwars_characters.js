@@ -1,21 +1,28 @@
 #!/usr/bin/node
-const axios = require('axios');
 
-async function getCharactersForMovie (movieId) {
-  try {
-    const url = `https://swapi.dev/api/films/${movieId}/`;
-    const response = await axios.get(url);
-    const characters = response.data.characters;
+const request = require('request');
 
-    for (const characterUrl of characters) {
-      const characterResponse = await axios.get(characterUrl);
-      console.log(characterResponse.data.name);
-    }
-  } catch (error) {
-    console.error(`An error occurred: ${error.message}`);
+const movieId = process.argv[2];
+const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+
+request(apiUrl, function (error, response, body) {
+  if (!error && response.statusCode === 200) {
+    const movieData = JSON.parse(body);
+
+    console.log(`Characters of "${movieData.title}":`);
+
+    movieData.characters.forEach((characterUrl) => {
+      request(characterUrl, function (charError, charResponse, charBody) {
+        if (!charError && charResponse.statusCode === 200) {
+          const characterData = JSON.parse(charBody);
+
+          console.log(characterData.name);
+        } else {
+          console.error('Error fetching character data:', charError);
+        }
+      });
+    });
+  } else {
+    console.error('Error fetching movie data:', error);
   }
-}
-
-// Example usage:
-const movieIdToSearch = 3; // Replace with the desired movie ID
-getCharactersForMovie(movieIdToSearch);
+});

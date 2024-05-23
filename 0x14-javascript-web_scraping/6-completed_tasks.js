@@ -1,31 +1,33 @@
 #!/usr/bin/node
-const axios = require('axios');
 
-async function countCompletedTasks (apiUrl) {
-  try {
-    const response = await axios.get(apiUrl);
-    const todos = response.data;
+const request = require('request');
 
-    // Create a map to track completed tasks per user
-    const completedTasksByUser = new Map();
+const apiUrl = process.argv[2];
 
-    // Count completed tasks
-    todos.forEach((todo) => {
-      if (todo.completed) {
-        const userId = todo.userId;
-        completedTasksByUser.set(userId, (completedTasksByUser.get(userId) || 0) + 1);
-      }
-    });
+request(apiUrl, function (error, response, body) {
+  if (!error && response.statusCode === 200) {
+    try {
+      const todos = JSON.parse(body);
 
-    // Print the results
-    completedTasksByUser.forEach((count, userId) => {
-      console.log(`User ${userId} completed ${count} tasks.`);
-    });
-  } catch (error) {
-    console.error(`An error occurred: ${error.message}`);
+      const completed = {};
+
+      todos.forEach((todo) => {
+        if (todo.completed) {
+          if (completed[todo.userId] === undefined) {
+            completed[todo.userId] = 1;
+          } else {
+            completed[todo.userId]++;
+          }
+        }
+      });
+
+      const output = `{${Object.entries(completed).map(([key, value]) => ` '${key}': ${value}`).join(',\n ')} }`;
+
+      console.log(Object.keys(completed).length > 2 ? output : completed);
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
+    }
+  } else {
+    console.error('Error:', error);
   }
-}
-
-// Example usage:
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
-countCompletedTasks(apiUrl);
+});
