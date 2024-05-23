@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-function writeToFile(filePath, content) {
+function writeToFile (filePath, content) {
   fs.writeFile(filePath, content, 'utf-8', (err) => {
     if (err) {
       console.error(`Error writing to the file: ${err.message}`);
