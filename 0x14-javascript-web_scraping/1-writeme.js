@@ -1,13 +1,15 @@
 #!/usr/bin/node
+
 const fs = require('fs');
 
-function writeToFile (filePath, content) {
-  try {
-    fs.writeFileSync(filePath, content, 'utf-8');
-    console.log(`Content successfully written to ${filePath}`);
-  } catch (error) {
-    console.error(`Error writing to the file: ${error.message}`);
-  }
+function writeToFile(filePath, content) {
+  fs.writeFile(filePath, content, 'utf-8', (err) => {
+    if (err) {
+      console.error(`Error writing to the file: ${err.message}`);
+    } else {
+      console.log(`Content successfully written to ${filePath}`);
+    }
+  });
 }
 
 // Usage example:
