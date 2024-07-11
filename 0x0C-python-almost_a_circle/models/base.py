@@ -92,51 +92,38 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
-        Write the CSV serialization of a list of objects to a file.
+        Writes the CSV serialization of a list of objects to a file.
+        Format:
+        Rectangle: <id>,<width>,<height>,<x>,<y>
+        Square: <id>,<size>,<x>,<y>
         """
-        # corrected the name of the file extension from .json to .csv
         file_name = "{}.csv".format(cls.__name__)
 
         with open(file_name, "w") as csvfile:
             if list_objs is None or list_objs == []:
                 csvfile.write("[]")
             else:
-                if cls.__name__ == "Rectangle":
-                    field_names = ["id", "width", "height", "x", "y"]
-                else:
-                    field_names = ["id", "size", "x", "y"]
+                field_names = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == "Rectangle"
+                else ["id", "size", "x", "y"]
                 writer = csv.DictWriter(csvfile, fieldnames=field_names)
 
-            for obj in list_objs:
-                writer.writerow(obj.to_dictionary())
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
         """
         Return a list of classes instantiated from a CSV file.
         """
-        # corrected the name of the file extension from .json to .csv
         file_name = "{}.csv".format(cls.__name__)
 
         try:
             with open(file_name, "r") as csvfile:
-                if cls.__name__ == "Rectangle":
-                    filednames = ["id", "width", "height", "x", "y"]
-                else:
-                    filednames = ["id", "size", "x", "y"]
-                list_dicts = csv.DictReader(csvfile, fieldnames=filednames)
-
-                new_list_dict = []
-
-                converted_dict = {}
-
-                for d in list_dicts:
-                    for key, value in d.items():
-                        converted_dict[key] = int(value)
-
-                    new_list_dict.append(converted_dict)
-
-                list_dicts = new_list_dict
+                fieldnames = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == "Rectangle"
+                else ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
 
                 list_of_instances = []
 
